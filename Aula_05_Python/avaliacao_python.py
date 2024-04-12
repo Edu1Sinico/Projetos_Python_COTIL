@@ -1,13 +1,12 @@
-
 # Método de Validar Nome
 def validarNome(validarNome):
+    validarNome = validarNome.capitalize().lstrip().rstrip()
     if len(validarNome) > 2:
-        if validarNome.strip() > 0:
+        if len(validarNome.split()) > 1:
             for nome in validarNome.split():
-                if validarNome.split().find(validarNome.split(nome) != -1):
+                if nome in validarNome.split():
                     return "Por favor, não repita o seu nome/sobrenome!"
                 else: 
-                    # nomeMinusculo = validarNome.lower().lstrip().rstrip()
                     return True  
         else:
             return "Por favor, insira o seu sobrenome!"
@@ -20,16 +19,16 @@ def verificarCPF(verificarCPF):
     if len(cpfFormatado) == 11:
         return True
     else:
-        return False
+        return "\nCPF Inválido. Por favor, informe o seu número CPF novamente.\n"
 
 # Método de verificar Telefone
-def vericarTelefone(vericarTelefone):
+def verificarTelefone(vericarTelefone):
     telefoneFormatado = vericarTelefone.replace("(","").replace(")","").replace("-","").replace(" ","")
         
     if len(telefoneFormatado) == 11:
         return True
     else:
-        return False
+        return "\nTelefone Inválido. Por favor, informe o seu número de telefone novamente.\n"
 
 # Método de verificar CEP
 def verificarCEP(verificarCEP):
@@ -38,7 +37,7 @@ def verificarCEP(verificarCEP):
     if len(cepFormatado) == 8:
         return True
     else:
-        return False
+        return "\nCEP Inválido. Por favor, informe o seu CEP novamente.\n"
     
 # Método de verificar Email
 def verificarEmail(verificarEmail):
@@ -47,8 +46,11 @@ def verificarEmail(verificarEmail):
     if emailFormatado.find("@gmail") != -1:
         return True
     else:
-        return False    
-
+        return "\E-mail Inválido. Por favor, informe o seu E-mail novamente.\n"
+    
+def realizarEmprestimo():
+    
+    
 # Paínel principal
 print("\n===================================================\n")
 print("Bem-Vindo ao Software de Empréstimo\n")
@@ -60,11 +62,34 @@ escolha = int(input("\nDigite sua escolha: "))
 
 if escolha == 1: 
     print("\n===================================================\n")
-    # numeroTelefone = input("Digite um número de telefone: ")
-    # if vericarTelefone(numeroTelefone):
-    #     print("\nTelefone com formatação correta.")
-    # else:
-    #     print("\nTelefone com formatação incorreta.")
+
+    print("Por favor, preencha as seguintes informações:\n")
+    nomeCompleto = input("    - Por favor, informe o seu nome completo: ")
+    cpf = input("    - Informe o número do seu CPF: ")
+    telefone = input("    - Informe o seu número de telefone: ")
+    endereco = input("    - Informe o seu endereço: ")
+    cep = input("    - Informe o seu CEP: ")
+    email = input("    - Digite o seu E-mail: ")
+
+    if validarNome(nomeCompleto):
+        if verificarCPF(cpf):
+            if verificarTelefone(telefone):
+                if verificarCEP(cep):
+                    if verificarEmail(email):
+                        print("\n===================================================\n")
+                        print(f"Bem vindo: {nomeCompleto}!\n")
+                        
+                    else:
+                        print(verificarEmail(email))
+                else: 
+                    print(verificarCEP(cep))
+            else:
+                print(vericarTelefone(telefone))
+        else:
+            print(verificarCPF(cpf))
+    else:
+        print(validarNome(nomeCompleto))
+            
 
 elif escolha == 2:
     print("\nObrigado por utilizar o meu programa!")
