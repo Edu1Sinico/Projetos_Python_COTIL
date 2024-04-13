@@ -1,17 +1,17 @@
 # Método de Validar Nome
 def validarNome(validarNome):
-    validarNome = validarNome.capitalize().lstrip().rstrip()
+    validarNome = validarNome.title().lstrip().rstrip()
     if len(validarNome) > 2:
         if len(validarNome.split()) > 1:
-            for nome in validarNome.split():
-                if nome in validarNome.split():
-                    return "Por favor, não repita o seu nome/sobrenome!"
-                else: 
-                    return True  
+            nome = validarNome.split()
+            if len(nome) == len(set(nome)):
+                return True
+            else:
+                return "\nPor favor, não repita o seu nome/sobrenome!\n"
         else:
-            return "Por favor, insira o seu sobrenome!"
+            return "\nPor favor, insira o seu sobrenome!\n"
     else:
-        return "Por favor, seu nome deve ter mais de duas letras!"
+        return "\nPor favor, seu nome deve conter mais de duas letras!\n"
                 
 # Método de verificar CPF
 def verificarCPF(verificarCPF):
@@ -46,15 +46,15 @@ def verificarEmail(verificarEmail):
     if emailFormatado.find("@gmail") != -1 and emailFormatado.count("@") == 1:
         return True
     else:
-        return "\E-mail Inválido. Por favor, informe o seu E-mail novamente.\n"
+        return "\nE-mail Inválido. Por favor, informe o seu E-mail novamente.\n"
     
 def realizarEmprestimo(valor_emprestimo, salario, meses):
     prestacao = valor_emprestimo / meses
 
     if prestacao > (salario * 0.3):
-        return "\nO valor da prestação excede 30% do seu salário.\n"
+        return "\nO valor da prestação excede 30% do seu salário!\n"
     else:
-        return prestacao
+        return "valor da prestação: R$ " . prestacao
 
     
 # Paínel principal
@@ -76,23 +76,26 @@ if escolha == 1:
     cep = input("    - Informe o seu CEP: ")
     email = input("    - Digite o seu E-mail: ")
 
-    if validarNome(nomeCompleto):
-        if verificarCPF(cpf):
-            if verificarTelefone(telefone):
-                if verificarCEP(cep):
-                    if verificarEmail(email):
+    if validarNome(nomeCompleto) is True:
+        if verificarCPF(cpf) is True:
+            if verificarTelefone(telefone) is True:
+                if verificarCEP(cep) is True:
+                    if verificarEmail(email) is True:
                         print("\n===================================================\n")
-                        print(f"Bem vindo: {nomeCompleto}!\n")
+                        print(f"Bem vindo: {nomeCompleto.title()}!\n")
                         print("Por favor, preencha as seguintes informações:\n")
-                        salario = float(input("    - Informe o seu salário: R$"))
-                        valor_emprestimo = float(input("    - Informe o valor do emprestimo: R$"))
-                        meses = int(input("    - Informe a quantidade de meses; "))
+                        salario = float(input("    - Informe o seu salário: R$ "))
+                        valor_emprestimo = float(input("    - Informe o valor do emprestimo: R$ "))
+                        meses = int(input("    - Informe a quantidade de meses: "))
+
+                        realizarEmprestimo(valor_emprestimo,salario,meses)
+
                     else:
                         print(verificarEmail(email))
                 else: 
                     print(verificarCEP(cep))
             else:
-                print(vericarTelefone(telefone))
+                print(verificarTelefone(telefone))
         else:
             print(verificarCPF(cpf))
     else:
@@ -100,6 +103,6 @@ if escolha == 1:
             
 
 elif escolha == 2:
-    print("\nObrigado por utilizar o meu programa!")
+    print("\nObrigado por utilizar o meu programa!\n")
 else:
-    print("\nPor favor, informe um desses valores!")
+    print("\nPor favor, informe um desses valores!\n")
