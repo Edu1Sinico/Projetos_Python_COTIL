@@ -43,13 +43,19 @@ def verificarCEP(verificarCEP):
 def verificarEmail(verificarEmail):
     emailFormatado = verificarEmail.lstrip().rstrip().replace(" ","").lower()
 
-    if emailFormatado.find("@gmail") != -1:
+    if emailFormatado.find("@gmail") != -1 and emailFormatado.count("@") == 1:
         return True
     else:
         return "\E-mail Inválido. Por favor, informe o seu E-mail novamente.\n"
     
-def realizarEmprestimo():
-    
+def realizarEmprestimo(valor_emprestimo, salario, meses):
+    prestacao = valor_emprestimo / meses
+
+    if prestacao > (salario * 0.3):
+        return "\nO valor da prestação excede 30% do seu salário.\n"
+    else:
+        return prestacao
+
     
 # Paínel principal
 print("\n===================================================\n")
@@ -62,7 +68,6 @@ escolha = int(input("\nDigite sua escolha: "))
 
 if escolha == 1: 
     print("\n===================================================\n")
-
     print("Por favor, preencha as seguintes informações:\n")
     nomeCompleto = input("    - Por favor, informe o seu nome completo: ")
     cpf = input("    - Informe o número do seu CPF: ")
@@ -78,7 +83,10 @@ if escolha == 1:
                     if verificarEmail(email):
                         print("\n===================================================\n")
                         print(f"Bem vindo: {nomeCompleto}!\n")
-                        
+                        print("Por favor, preencha as seguintes informações:\n")
+                        salario = float(input("    - Informe o seu salário: R$"))
+                        valor_emprestimo = float(input("    - Informe o valor do emprestimo: R$"))
+                        meses = int(input("    - Informe a quantidade de meses; "))
                     else:
                         print(verificarEmail(email))
                 else: 
