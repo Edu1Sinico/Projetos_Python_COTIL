@@ -1,0 +1,23 @@
+Aula de Python - 25/04/2024
+
+Inicialização do projeto de Django
+
+Comando 1 - Criação do projeto:
+    1. py -m venv projeto
+
+Comando 2 - Ativa o projeto:
+    1. projeto\Scripts\activate
+
+Comando 3 - instala o Django:
+    1. pip install Django
+
+Comando 4 - inicia o projeto:
+    1. py -m django startproject mysite
+
+Comando 5 - Roda o servidor local:
+    1. py manage.py runserver
+
+Comando 6 - Criação de um aplicativo
+    1. py manage.py startapp polls (O nome polls pode ser alterado)
+
+Comando 7 -
