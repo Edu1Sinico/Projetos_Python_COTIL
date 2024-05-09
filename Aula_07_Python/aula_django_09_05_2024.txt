@@ -1,0 +1,9 @@
+09/05/2024 - Aula Django
+
+Realização nas alterações nas páginas:
+
+ - Home/Apps;
+ - Home/views;
+ - mysite/urls;
+ - mysite/settings. 
+
