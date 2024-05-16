@@ -1,0 +1,38 @@
+16/05/2024 - Aula Django - Revisando alguns conceitos e projeto
+
+==============================================================================
+
+Arquivo "Views" do Projeto "HOME" Criado (Home/views):
+
+# Criação de definição de requisição para cada HTML criado:
+def home(request):
+    return render(request, "home.html")
+
+==============================================================================
+
+Arquivo "urls" do Projeto "Project" Criado (project/urls):
+
+# Realização da importação do arquivo Home/views:
+from home import views as home_views
+
+# Criação da rota para a página view, importando o método def "home" e convertendo ele para "home/"
+    path('home/',home_views.home),
+
+==============================================================================
+
+Arquivo "settings" do Projeto "Project" Criado (project/settings):
+
+# Application definition
+# Adicionando 'home' para a array INSTALLED_APPS (O programa identifica a criação do arquivo html criado por aqui)
+# Devemos somente colocar a 'home' para identificar qual é a página inicial.
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'home',
+]
+
+==============================================================================

@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 # Adicionando 'home' para a array INSTALLED_APPS (O programa identifica a criação do arquivo html criado por aqui)
+# Devemos somente colocar a 'home' para identificar qual é a página inicial.
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
