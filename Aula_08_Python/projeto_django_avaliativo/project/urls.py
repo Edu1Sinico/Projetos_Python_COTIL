@@ -23,4 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Criação da rota para a página view, importando o método def "home" e convertendo ele para "home/"
     path('home/',home_views.home),
+    path('producao/',home_views.producao),
+    path('expedicao/',home_views.expedicao),
+    path('engenharia/',home_views.engenharia),
+    path('controleQualidade/',home_views.controleQualidade),
 ]
