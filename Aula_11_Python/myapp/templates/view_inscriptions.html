@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <title>Inscrições</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <h1>Lista de Inscrições</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Data de Nascimento</th>
+          <th>Imagem</th>
+          <!-- Cabeçalho para a imagem -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for inscription in inscriptions %}
+        <tr>
+          <td>{{ inscription.name }}</td>
+          <td>{{ inscription.email }}</td>
+          <td>{{ inscription.dob }}</td>
+          <td>
+            {% if inscription.image %}
+            <!-- Verifica se há
+
+uma imagem -->
+
+            <img
+              src="{{ inscription.image.url }}"
+              alt="{{
+
+inscription.name }}"
+              width="100"
+            />
+            <!-- Exibe a imagem -->
+
+            {% else %} No image {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{% url 'index' %}"><button>Home</button></a>
+  </body>
+</html>
