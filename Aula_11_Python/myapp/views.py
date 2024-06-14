@@ -12,12 +12,11 @@ def signup(request):
     if request.method == 'POST': # Verifica se o método da requisição é POST
 
     # Obtém os dados do formulário
-        name = request.POST['name']
-        email = request.POST['email']
-        dob = request.POST['dob']
+        num_identificacao = request.POST['num_identificacao']
+        local = request.POST['local']
         image = request.FILES.get('image') # Obtém o arquivo de imagem
         # Cria uma nova inscrição no banco de dados
-        Inscription.objects.create(name=name, email=email, dob=dob, image=image) # Salva a inscrição com a imagem
+        Inscription.objects.create(num_identificacao=num_identificacao, local=local, image=image) # Salva a inscrição com a imagem
         # Redireciona para a página de visualização das inscrições
         return redirect('view_inscriptions')
         # Renderiza o template signup.html para GET requests

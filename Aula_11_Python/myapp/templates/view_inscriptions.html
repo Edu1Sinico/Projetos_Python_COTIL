@@ -12,13 +12,12 @@ initial-scale=1.0"
     <link rel="stylesheet" href="{% static 'styles.css' %}" />
   </head>
   <body>
-    <h1>Lista de Inscrições</h1>
+    <h1>Lista de Roupas</h1>
     <table>
       <thead>
         <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Data de Nascimento</th>
+          <th>Nº de Identificação</th>
+          <th>Localização</th>
           <th>Imagem</th>
           <!-- Cabeçalho para a imagem -->
         </tr>
@@ -26,9 +25,8 @@ initial-scale=1.0"
       <tbody>
         {% for inscription in inscriptions %}
         <tr>
-          <td>{{ inscription.name }}</td>
+          <td>{{ inscription.num_identificacao }}</td>
           <td>{{ inscription.email }}</td>
-          <td>{{ inscription.dob }}</td>
           <td>
             {% if inscription.image %}
             <!-- Verifica se há
