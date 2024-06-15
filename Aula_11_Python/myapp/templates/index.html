@@ -1,15 +1,13 @@
 <!-- myapp/templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <!-- Define a codificação de caracteres
 para o documento -->
-    <meta
-      name="viewport"
-      content="width=device-width,
-initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
     <!-- Configura a viewport para dispositivos
 móveis -->
     <title>Boas Vindas</title>
@@ -20,11 +18,17 @@ Django -->
     <link rel="stylesheet" href="{% static 'styles.css' %}" />
     <!--
 Inclui o arquivo CSS -->
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Bem-vindo ao nossa loja de roupas!</h1>
     <!-- Cabeçalho da página -->
-    <a href="{% url 'signup' %}"><button>Cadastrar Roupa</button></a>
-    <!-- Botão para a página de inscrição -->
-  </body>
+    <div class="btn-section">
+        <a href="{% url 'signup' %}"><button>Cadastrar Roupa</button></a>
+        <!-- Botão para a página de inscrição -->
+        <a href="{% url 'view_inscriptions' %}"><button>Visualizar Roupas</button></a>
+        <!-- Botão para a página de listagem de roupas -->
+    </div>
+</body>
+
 </html>

@@ -1,35 +1,35 @@
 <!-- myapp/templates/signup.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,
-initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
     <title>Cadastro</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}" />
-  </head>
-  <body>
-    <h1>Formulário de Inscrição</h1>
+</head>
+
+<body>
+    <h1>Cadastro de Roupas</h1>
     <form method="post" enctype="multipart/form-data">
-      <!-- Adicione
+        <!-- Adicione
 enctype para suportar upload de arquivos -->
 
-      {% csrf_token %}
-      <label for="num_identificacao">Nº de identificação</label>
-      <input type="local" id="num_identificacao" name="num_identificacao" required /><br /><br />
-      <label for="email">Localizao:</label>
-      <input type="text" id="local" name="local" required /><br /><br />
-      <label for="image">Imagem:</label>
-      <!-- Campo de upload de
+        {% csrf_token %}
+        <label for="num_identificacao">Nº de identificação</label>
+        <input type="local" id="num_identificacao" name="num_identificacao" required /><br /><br />
+        <label for="email">Localizao:</label>
+        <input type="text" id="local" name="local" required /><br /><br />
+        <label for="image">Imagem:</label>
+        <!-- Campo de upload de
 
 imagem -->
 
-      <input type="file" id="image" name="image" /><br /><br />
-      <button type="submit">Enviar</button>
+        <input type="file" id="image" name="image" /><br /><br />
+        <button type="submit">Enviar</button>
     </form>
-  </body>
+</body>
+
 </html>

@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\aluno\Documents\Projetos_Python_COTIL\Aula_12_Python\venv
+set VIRTUAL_ENV=C:\Users\Eduardo\OneDrive\Documentos\Área de Trabalho\Códigos e Projetos\Visual Studio Code Projetos\Python\Projetos_Python_COTIL\Aula_11_Python\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
