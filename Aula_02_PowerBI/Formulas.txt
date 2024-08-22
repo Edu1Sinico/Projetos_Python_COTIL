@@ -1,0 +1,3 @@
+Valor produto = LOOKUPVALUE('Lista Produtos'[Valor],'Lista Produtos'[ID Produto],[ID Produto])
+Faturamento = [Quantidade]*[Valor produto]
+Faturamento total = SUM(Vendas[Faturamento])
